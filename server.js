@@ -8,9 +8,12 @@ import {errorHandler} from "./middlewares/error-handler.js"
 import user_router from "./routes/userRoutes.js"
 import admin_router from "./routes/adminRoutes.js"
 import work_router from "./routes/workingHoursRoutes.js"
+import buyer_router from "./routes/buyerRoutes.js"
+import adminRouter from "./routes/sadminRoutes.js"
 
 import connectDB from "./config/db.js"
 import item_router from "./routes/itemRoutes.js"
+//import buyer_router from "./routes/buyerRoutes.js"
 
 dotenv.config({path: "./config/config.env"});
 connectDB().then()
@@ -26,6 +29,8 @@ app.use("/api/user", user_router)
 app.use("/api/admin", admin_router)
 app.use("/api/user", work_router)
 app.use("/api/item", item_router)
+app.use("/api/buyer", buyer_router)
+app.use("/api/sadmin", adminRouter)
 
 
 const PORT = process.env.PORT || 5000;

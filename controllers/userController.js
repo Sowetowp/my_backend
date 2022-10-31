@@ -5,13 +5,14 @@ import User from "../models/user.js";
 //import user from "../models/user.js";
 export const user_signup = asyncHandler(async(req, res) => {
     const {firstName,
-         middleName,
-          lastName,
-           age, gender,
-            phoneNumber,
-             email,
-              address,
-               password} = req.body
+        middleName,
+        lastName,
+        age, 
+        gender,
+        phoneNumber,
+        email,
+        address,
+        password} = req.body
     const userExist = await User.find({email: email}, {phoneNumber: phoneNumber})           
 
 
@@ -93,6 +94,8 @@ export const get_single_user = asyncHandler(async(req, res) => {
             message: "user gotten",
             data: user
         })
+    }else{
+        res.json({message:"something went wrong"})
     }
 })
 

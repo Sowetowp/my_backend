@@ -115,7 +115,7 @@ export const updateOneItem = asyncHandler(async(req, res) => {
 
 export const deleteoneitem = asyncHandler(async(req, res) => {
     const user = await User.findById(req.user.id)
-    const singleitem = await Item.findById({_id:req.params.id})
+    const singleitem = await Item.findByIdAndDelete({_id:req.params.id})
     if(user && singleitem){
         res.json({
             status: "ok",
