@@ -13,6 +13,7 @@ import adminRouter from "./routes/sadminRoutes.js"
 
 import connectDB from "./config/db.js"
 import item_router from "./routes/itemRoutes.js"
+import microsoft_router from "./routes/microsoftRoute.js"
 //import buyer_router from "./routes/buyerRoutes.js"
 
 dotenv.config({path: "./config/config.env"});
@@ -31,6 +32,7 @@ app.use("/api/user", work_router)
 app.use("/api/item", item_router)
 app.use("/api/buyer", buyer_router)
 app.use("/api/sadmin", adminRouter)
+app.use("/api/microsoft", microsoft_router)
 
 
 const PORT = process.env.PORT || 5000;

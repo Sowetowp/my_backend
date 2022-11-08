@@ -147,7 +147,7 @@ export const buyerDelete = asyncHandler(async(req, res) => {
 export const get_item = asyncHandler(async(req, res) => {
     const users = await User.find({})
     const items = await Item.find({created_by: users})
-    const veri = items.filter(x => x.availability == true)
+    const veri = items.filter(x => {return x.availability == true})
         
     if(veri){
         res.json({
