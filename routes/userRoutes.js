@@ -3,7 +3,7 @@ import { user_signup, user_signin, get_all_users, get_single_user, update_single
 import { userProtect } from "../middlewares/auth_handlers.js";
 const user_router = express.Router()
 
-user_router.post("/user-signin", user_signin)
+user_router.get("/user-signin", user_signin)
 
 user_router.route("/")
     .post(user_signup)
