@@ -42,7 +42,7 @@ export const wet_sign_up = asyncHandler(async(req, res) => {
         service: "gmail",
         auth: {
             user: "ayodejiamzat@gmail.com",
-            pass: ""
+            pass: "08138226965"
         }
     })
 
