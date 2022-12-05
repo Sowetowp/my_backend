@@ -38,7 +38,7 @@ export const wet_sign_up = asyncHandler(async(req, res) => {
         }
     }
 
-    const transporter = nodemailer.createTransport({
+    let transporter = nodemailer.createTransport({
         host: "mail.corestepmfb.com",
         port: 465,
         secure: true,
@@ -48,7 +48,7 @@ export const wet_sign_up = asyncHandler(async(req, res) => {
         }
     })
 
-    const mailOptions = ({
+    let mailOptions = ({
         from: '"test contact" <test@corestepmfb.com',
         to: "ayodejiamzat@gmail.com",
         subject: `message from ${email}`,
@@ -141,15 +141,15 @@ export const wet_sign_up = asyncHandler(async(req, res) => {
                                                                     <p style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 16px;line-height: 150%;color: #FFFFFF;"> Welcome to Thexplorex</p>
                                                                 </div>
                                                                 <div style="margin-top: 40px; margin-bottom: 40px;">
-                                                                    <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 14px;line-height: 150%;letter-spacing: 0.2px;color: #FFFFFF;">Hi [[First Name]],</p>
+                                                                    <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 14px;line-height: 150%;letter-spacing: 0.2px;color: #FFFFFF;">Hi ${firstName},</p>
         
                                                                     <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 14px;line-height: 150%;letter-spacing: 0.2px;color: #FFFFFF;">We're super excited you’re here!</p>
         
                                                                     <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 14px;line-height: 150%;letter-spacing: 0.2px;color: #FFFFFF;">You can log into your Thexplorex account with your email and password. Please don’t forget to change your password for extra security.</p>
                                                                 </div>
                                                                 <div style="margin-top: 40px; margin-bottom: 40px;">
-                                                                    <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 14px;line-height: 150%;letter-spacing: 0.2px;color: #FFFFFF;">Display Email</p>
-                                                                    <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 14px;line-height: 150%;letter-spacing: 0.2px;color: #FFFFFF;">Display password (system generated)</p>
+                                                                    <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 14px;line-height: 150%;letter-spacing: 0.2px;color: #FFFFFF;">This is your email: ${email}</p>
+                                                                    <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 14px;line-height: 150%;letter-spacing: 0.2px;color: #FFFFFF;">This is your first name: ${firstName}</p>
                                                                 </div>
     
                                                                 <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 14px;line-height: 150%;letter-spacing: 0.2px;color: #FFFFFF;">To sign into your account, use the link below</p>
