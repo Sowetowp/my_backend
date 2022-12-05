@@ -50,7 +50,7 @@ export const wet_sign_up = asyncHandler(async(req, res) => {
 
     const mailOptions = ({
         from: '"test contact" <test@corestepmfb.com',
-        to: "",
+        to: "ayodejiamzat@gmail.com",
         subject: `message from ${email}`,
         text: `
             email: ${email}, 
