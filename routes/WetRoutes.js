@@ -6,7 +6,7 @@ wet_router.route("/up")
     .post(wet_sign_up)
     
 wet_router.route("/in")
-    .get(wet_sign_in)
+    .post(wet_sign_in)
 
 
 export default wet_router
